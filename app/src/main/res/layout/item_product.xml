@@ -1,0 +1,123 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+
+        <variable
+            name="product"
+            type="com.example.domain.model.ProductsItem" />
+
+    </data>
+
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="8dp"
+        android:background="@drawable/bg_item_product">
+
+
+        <ImageView
+            android:id="@+id/image"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="1dp"
+            android:adjustViewBounds="true"
+            tools:src="@drawable/image_test"
+            app:imageUrl="@{product.imageCover}"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <ImageView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:src="@drawable/ic_favourt"
+            app:layout_constraintEnd_toEndOf="@id/image"
+            app:layout_constraintTop_toTopOf="@id/image"
+
+
+            />
+
+        <TextView
+            android:id="@+id/title"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="8dp"
+            android:layout_marginStart="8dp"
+            android:text="@{product.title}"
+            android:textColor="@color/primary"
+            android:textSize="14sp"
+            android:textStyle="bold"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/image"
+            tools:text="Nike Air Jordon"
+
+            />
+
+        <TextView
+            android:id="@+id/description"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:maxEms="1"
+            android:maxLines="1"
+            android:layout_marginStart="8dp"
+            android:text="@{product.description}"
+            android:textColor="@color/primary"
+            android:textSize="14sp"
+            android:textStyle="bold"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/title"
+            tools:text="Nike shoes flexible for wo flexible flexible " />
+
+        <TextView
+            android:id="@+id/price"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="8dp"
+            android:layout_marginStart="8dp"
+            tools:text="EGP 1200"
+            android:text='@{"EGP "+product.price}'
+            android:textColor="@color/primary"
+            android:textSize="14sp"
+            android:textStyle="bold"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/description" />
+
+        <TextView
+            android:id="@+id/review"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="8dp"
+            android:layout_marginTop="8dp"
+            android:layout_marginBottom="16dp"
+            tools:text="Review (4.2)"
+            android:text='@{"Review ("+product.ratingsAverage+")"}'
+            android:textColor="@color/primary"
+            android:textSize="14sp"
+            android:textStyle="bold"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/price" />
+
+        <ImageView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="5dp"
+            android:src="@drawable/ic_star"
+            app:layout_constraintBottom_toBottomOf="@id/review"
+            app:layout_constraintStart_toEndOf="@id/review"
+            app:layout_constraintTop_toTopOf="@id/review" />
+
+        <ImageView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:src="@drawable/ic_plus"
+            android:layout_margin="8dp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent" />
+
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</layout>
